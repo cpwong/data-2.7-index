@@ -17,8 +17,8 @@
             <button class="tab-btn active" data-tab="overview">Overview</button>
             <button class="tab-btn" data-tab="gx">Great Expectations</button>
             <button class="tab-btn" data-tab="dbt">DBT Testing</button>
-            <button class="tab-btn" data-tab="orchestration">Orchestration</button>
             <button class="tab-btn" data-tab="workflow">Complete Workflow</button>
+            <button class="tab-btn" data-tab="orchestration">Orchestration</button>
         </nav>
 
         <!-- Overview Tab -->
@@ -34,22 +34,29 @@
             <section class="card">
                 <h2>🛠️ Technologies Covered</h2>
                 <div class="tech-grid">
-                    <div class="tech-card">
-                        <h3>Great Expectations</h3>
-                        <p>Open-source Python library for data testing and validation</p>
-                        <div class="feature-list">
-                            <span class="tag">File Support</span>
-                            <span class="tag">Database Support</span>
-                            <span class="tag">Data Lakes</span>
+                    <!-- Great Expectations -->
+                    <div class="tech-feature">
+                        <div class="tech-header">
+                            <h3>Great Expectations</h3>
+                            <p>Open-source Python library for data testing and validation</p>
+                        </div>
+                        <div class="feature-buttons">
+                            <button class="feature-btn" data-modal="file-support">📁 File Support</button>
+                            <button class="feature-btn" data-modal="database-support">🗄️ Database Support</button>
+                            <button class="feature-btn" data-modal="data-lakes">🏞️ Data Lakes</button>
                         </div>
                     </div>
-                    <div class="tech-card">
-                        <h3>DBT Testing</h3>
-                        <p>Built-in testing framework with extensible packages</p>
-                        <div class="feature-list">
-                            <span class="tag">Built-in Tests</span>
-                            <span class="tag">dbt_utils</span>
-                            <span class="tag">dbt-expectations</span>
+                    
+                    <!-- DBT Testing -->
+                    <div class="tech-feature">
+                        <div class="tech-header">
+                            <h3>DBT Testing</h3>
+                            <p>Built-in testing framework with extensible packages</p>
+                        </div>
+                        <div class="feature-buttons">
+                            <button class="feature-btn" data-modal="builtin-tests">✅ Built-in Tests</button>
+                            <button class="feature-btn" data-modal="dbt-utils">🔧 dbt_utils</button>
+                            <button class="feature-btn" data-modal="dbt-expectations">🎯 dbt-expectations</button>
                         </div>
                     </div>
                 </div>
@@ -749,6 +756,16 @@ defs = Definitions(
         <footer>
             <p>💡 <strong>Tip:</strong> Click on different sections to explore and expand code examples!</p>
         </footer>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-container">
+            <button class="modal-close">&times;</button>
+            <div class="modal-content" id="modal-content">
+                <!-- Content will be dynamically inserted here -->
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
