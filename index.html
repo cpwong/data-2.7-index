@@ -38,7 +38,7 @@
                     <div class="tech-feature">
                         <div class="tech-header">
                             <h3>Great Expectations</h3>
-                            <p>Open-source Python library for data testing and validation</p>
+                            <p>Python library for data testing and validation</p>
                         </div>
                         <div class="feature-buttons">
                             <button class="feature-btn" data-modal="file-support">📁 File Support</button>
@@ -374,6 +374,15 @@ validation_results = batch.validate(expectation)</code></pre>
                     <div class="workflow-step">
                         <div class="step-number">2</div>
                         <div class="step-content">
+                            <h4>Create Snapshots</h4>
+                            <pre><code class="language-bash">dbt snapshot</code></pre>
+                            <p>Create snapshot tables for slowly changing dimensions</p>
+                        </div>
+                    </div>
+
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
                             <h4>Run Models</h4>
                             <pre><code class="language-bash">dbt run</code></pre>
                             <p>Build your models in the data warehouse</p>
@@ -381,7 +390,7 @@ validation_results = batch.validate(expectation)</code></pre>
                     </div>
 
                     <div class="workflow-step">
-                        <div class="step-number">3</div>
+                        <div class="step-number">4</div>
                         <div class="step-content">
                             <h4>Execute Tests</h4>
                             <pre><code class="language-bash">dbt test</code></pre>
@@ -443,21 +452,22 @@ validation_results = batch.validate(expectation)</code></pre>
                 
                 <div class="orchestration-example">
                     <h3>Sample Dagster Configuration</h3>
-                    <pre><code class="language-python">from dagster import job, op
+                    <pre><code class="language-python">from dagster import Definitions, ScheduleDefinition, job
 from dagster_meltano import meltano_resource, meltano_run_op
 
 @job(resource_defs={"meltano": meltano_resource})
 def run_elt_job():
-    tap_done = meltano_run_op("tap-github target-bigquery")()</code></pre>
-                </div>
+    tap_done = meltano_run_op("tap-github target-bigquery")()
 
-                <div class="orchestration-example">
-                    <h3>DBT Pipeline Schedule</h3>
-                    <pre><code class="language-python">from dagster import ScheduleDefinition
-
+# Schedule to run daily at midnight
 elt_schedule = ScheduleDefinition(
     job=run_elt_job,
-    cron_schedule="0 0 * * *",  # daily at midnight
+    cron_schedule="0 0 * * *",
+)
+
+defs = Definitions(
+    jobs=[run_elt_job],
+    schedules=[elt_schedule],
 )</code></pre>
                 </div>
             </section>
