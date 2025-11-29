@@ -333,7 +333,7 @@ const modalContent = {
             <h3>📖 Documentation</h3>
             <ul>
                 <li><a href="https://docs.greatexpectations.io/docs/core/connect_to_data/filesystem_data/" target="_blank">Connecting to Filesystem Data</a></li>
-                <li><a href="https://docs.greatexpectations.io/docs/core/connect_to_data/connect_to_data_lp/" target="_blank">Connect to Data Overview</a></li>
+                <li><a href="https://docs.greatexpectations.io/docs/core/connect_to_data/" target="_blank">Connect to Data Overview</a></li>
             </ul>
         `
     },
@@ -411,7 +411,7 @@ const modalContent = {
             
             <h3>📖 Documentation</h3>
             <ul>
-                <li><a href="https://docs.greatexpectations.io/docs/core/connect_to_data/cloud/" target="_blank">Connecting to Cloud Storage</a></li>
+                <li><a href="https://docs.greatexpectations.io/docs/cloud/overview/gx_cloud_overview" target="_blank">Connecting to Cloud Storage</a></li>
                 <li><a href="https://docs.greatexpectations.io/docs/core/introduction/gx_overview/" target="_blank">GX Overview</a></li>
             </ul>
         `
